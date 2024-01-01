@@ -33,7 +33,7 @@ import json
 import nodes
 import math
 import numpy as np
-from numba import jit
+#from numba import jit
 import os
 import random
 import re
@@ -598,7 +598,7 @@ def parse_dynamic_prompt(prompt, seed):
         parse_prompt = re.sub(r'\<(.*?)\>', replace_match, parse_prompt)
         
     return parse_prompt
-    
+'''    
 # Ambient Occlusion Factor
 
 @jit(nopython=True)
@@ -664,7 +664,7 @@ def calculate_direct_occlusion_factor(rgb_normalized, depth_normalized, height, 
     occlusion_scaled = ((occlusion_array - occlusion_min) / (occlusion_max - occlusion_min) * 255).astype(np.uint8)
 
     return occlusion_scaled
-
+'''
     
 class PromptStyles:
     def __init__(self, styles_file, preview_length = 32):
@@ -6731,7 +6731,7 @@ class WAS_Image_RGB_Merge:
         merged_img = Image.merge('RGB', (red, green, blue))
 
         return merged_img    
-        
+'''        
 # IMAGE Ambient Occlusion
 
 class WAS_Image_Ambient_Occlusion:
@@ -6975,7 +6975,7 @@ class WAS_Image_Direct_Occlusion:
         direct_occlusion_image = ImageChops.screen(rgb_image, occlusion_result.convert("RGB"))
 
         return direct_occlusion_image, occlusion_result, occlusion_image, light_image
-
+'''
 # EXPORT API
 
 class WAS_Export_API:
